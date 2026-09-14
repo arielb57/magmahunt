@@ -1,0 +1,34 @@
+[package]
+name = "magmahunt"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Fast finite-counterexample search for implications between equational laws over magmas"
+license = "MIT"
+readme = "README.md"
+keywords = ["magma", "universal-algebra", "model-finder", "equational-logic"]
+categories = ["mathematics", "command-line-utilities"]
+
+[lib]
+name = "magmahunt"
+path = "src/lib.rs"
+
+[[bin]]
+name = "magmahunt"
+path = "src/main.rs"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = { version = "0.5", default-features = false }
+proptest = "1"
+
+[[bench]]
+name = "search"
+harness = false
+
+[profile.test]
+opt-level = 3
+
+[profile.release]
+debug = false
